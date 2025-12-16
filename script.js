@@ -5,6 +5,7 @@ const translations = {
     de: {
         // Navigation
         'nav.home': 'Startseite',
+        'nav.services': 'Preise',
         'nav.gallery': 'Galerie',
         'nav.contact': 'Kontakt',
 
@@ -12,6 +13,29 @@ const translations = {
         'hero.tagline': 'Willkommen bei',
         'hero.description': 'Erleben Sie erstklassiges Hairstyling in einer modernen Atmosphäre. Unser Team von erfahrenen Stylisten sorgt dafür, dass Sie immer perfekt aussehen.',
         'hero.cta': 'Termin vereinbaren',
+
+        // Services
+        'services.service': 'Service',
+        'services.price': 'Preis',
+        'services.kurz': 'Kurz',
+        'services.lang': 'Lang',
+        'services.more': 'MEHR',
+        'services.schneiden': 'Schneiden',
+        'services.nullSchnitt': 'Null Schnitt, Taper fade, low fade',
+        'services.nullSchnittWaschen': 'Null Schnitt mit Waschen, Stylen',
+        'services.bartRasieren': 'Bart rasieren',
+        'services.bartModernen': 'Bart modernen',
+        'services.bartKuerzen': 'Bart kürzen',
+        'services.bartFaerben': 'Bart Färben',
+        'services.waschenSchneiden': 'Waschen, Schneiden',
+        'services.waschenSchneidenFoehnen': 'Waschen, Schneiden, Föhnen',
+        'services.waschenFoehnen': 'Waschen, Föhnen',
+        'services.straehnenOberkopf': 'Strähnen Oberkopf',
+        'services.straehnenKomplett': 'Strähnen komplett',
+        'services.faerben': 'Färben',
+        'services.abPrefix': 'ab €70',
+        'services.abPrice80': 'ab €80',
+        'services.abPrice50': 'ab €50',
 
         // Gallery
         'gallery.tagline': 'Unsere Arbeit',
@@ -66,6 +90,7 @@ const translations = {
     en: {
         // Navigation
         'nav.home': 'Home',
+        'nav.services': 'Prices',
         'nav.gallery': 'Gallery',
         'nav.contact': 'Contact',
 
@@ -73,6 +98,29 @@ const translations = {
         'hero.tagline': 'Welcome to',
         'hero.description': 'Experience first-class hairstyling in a modern atmosphere. Our team of experienced stylists ensures you always look perfect.',
         'hero.cta': 'Book Appointment',
+
+        // Services
+        'services.service': 'Service',
+        'services.price': 'Price',
+        'services.kurz': 'Short',
+        'services.lang': 'Long',
+        'services.more': 'MORE',
+        'services.schneiden': 'Haircut',
+        'services.nullSchnitt': 'Zero cut, Taper fade, Low fade',
+        'services.nullSchnittWaschen': 'Zero cut with Wash, Style',
+        'services.bartRasieren': 'Beard shave',
+        'services.bartModernen': 'Beard trim',
+        'services.bartKuerzen': 'Beard shorten',
+        'services.bartFaerben': 'Beard coloring',
+        'services.waschenSchneiden': 'Wash, Cut',
+        'services.waschenSchneidenFoehnen': 'Wash, Cut, Blow-dry',
+        'services.waschenFoehnen': 'Wash, Blow-dry',
+        'services.straehnenOberkopf': 'Highlights top',
+        'services.straehnenKomplett': 'Highlights complete',
+        'services.faerben': 'Coloring',
+        'services.abPrefix': 'from €70',
+        'services.abPrice80': 'from €80',
+        'services.abPrice50': 'from €50',
 
         // Gallery
         'gallery.tagline': 'Our Work',
@@ -137,6 +185,7 @@ document.addEventListener('DOMContentLoaded', function () {
     initMobileMenu();
     initLightbox();
     initSmoothScroll();
+    initScrollAnimations();
 });
 
 // Language System
@@ -333,5 +382,37 @@ function initSmoothScroll() {
                 });
             }
         });
+    });
+}
+
+// Scroll Animations using Intersection Observer
+function initScrollAnimations() {
+    const animatedElements = document.querySelectorAll('.animate-on-scroll');
+
+    if (animatedElements.length === 0) return;
+
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const delay = entry.target.dataset.delay || 0;
+
+                setTimeout(() => {
+                    entry.target.classList.add('visible');
+                }, parseInt(delay));
+
+                // Unobserve after animation triggers
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    animatedElements.forEach(el => {
+        observer.observe(el);
     });
 }

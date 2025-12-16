@@ -17,16 +17,18 @@
     --color-green: #52B380;
     --color-overlay: rgba(135, 134, 134, 0.21);
     --color-red-overlay: rgba(224, 35, 47, 0.42);
-    
+
     --font-heading: "Red Rose", serif;
     --font-body: "Montserrat", sans-serif;
-    
+
     --transition-fast: 0.3s ease;
     --transition-medium: 0.5s ease;
 }
 
 /* Reset & Base */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -63,7 +65,12 @@ img {
 }
 
 /* Typography */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-family: var(--font-heading);
     color: var(--color-accent);
     line-height: 1.2;
@@ -276,12 +283,10 @@ h3 {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(
-        to bottom,
-        rgba(18, 18, 18, 0.7) 0%,
-        rgba(18, 18, 18, 0.4) 50%,
-        rgba(18, 18, 18, 0.9) 100%
-    );
+    background: linear-gradient(to bottom,
+            rgba(18, 18, 18, 0.7) 0%,
+            rgba(18, 18, 18, 0.4) 50%,
+            rgba(18, 18, 18, 0.9) 100%);
 }
 
 .hero-content {
@@ -423,11 +428,9 @@ section {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(
-        to top,
-        rgba(224, 35, 47, 0.6) 0%,
-        transparent 50%
-    );
+    background: linear-gradient(to top,
+            rgba(224, 35, 47, 0.6) 0%,
+            transparent 50%);
     opacity: 0;
     transition: var(--transition-fast);
     z-index: 1;
@@ -650,38 +653,38 @@ section {
     .nav-links {
         display: none;
     }
-    
+
     .mobile-menu-btn {
         display: flex;
     }
-    
+
     .nav-right {
         gap: 15px;
     }
-    
+
     .gallery-grid {
         grid-template-columns: repeat(2, 1fr);
     }
-    
+
     .footer-content {
         grid-template-columns: 1fr;
         text-align: center;
     }
-    
+
     .footer-brand {
         align-items: center;
     }
-    
+
     .social-icons {
         justify-content: center;
     }
-    
+
     .footer-bottom {
         flex-direction: column;
         gap: 20px;
         text-align: center;
     }
-    
+
     section {
         padding: 60px 0;
     }
@@ -691,16 +694,16 @@ section {
     .gallery-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .hero-cta {
         padding: 12px 30px;
         font-size: 12px;
     }
-    
+
     .lang-toggle {
         padding: 6px 10px;
     }
-    
+
     .lang-btn {
         font-size: 11px;
         padding: 3px 6px;
@@ -749,6 +752,7 @@ section {
         opacity: 0;
         transform: translateY(30px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -762,11 +766,9 @@ section {
 /* Page Styles (Impressum, Datenschutz) */
 .page-header {
     padding: 150px 0 80px;
-    background: linear-gradient(
-        to bottom,
-        var(--color-darker) 0%,
-        var(--color-dark) 100%
-    );
+    background: linear-gradient(to bottom,
+            var(--color-darker) 0%,
+            var(--color-dark) 100%);
     text-align: center;
 }
 
@@ -829,4 +831,398 @@ section {
 .back-link svg {
     width: 20px;
     height: 20px;
+}
+
+/* ==================== Services Section ==================== */
+.services {
+    background: var(--color-darker);
+    padding: 80px 0 120px;
+}
+
+.services-block {
+    max-width: 900px;
+    margin: 0 auto 80px;
+    padding: 40px;
+    background: rgba(28, 28, 28, 0.6);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+}
+
+.services-block:last-child {
+    margin-bottom: 0;
+}
+
+.services-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.services-title {
+    font-family: var(--font-heading);
+    font-size: clamp(32px, 5vw, 48px);
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+
+.title-bar {
+    color: #3b9fd9;
+}
+
+.title-highlight {
+    color: var(--color-accent);
+}
+
+.title-bar.red {
+    color: var(--color-secondary);
+}
+
+.title-highlight.red {
+    color: var(--color-accent);
+}
+
+/* Services Table */
+.services-table {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.services-table-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 0 15px 0;
+    margin-bottom: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.service-name-header {
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--color-text);
+    flex: 1;
+}
+
+.service-price-header {
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--color-text);
+    min-width: 70px;
+    text-align: right;
+}
+
+/* Dual Price Layout for Friseursalon */
+.dual-price .services-table-header {
+    display: grid;
+    grid-template-columns: 1fr 70px 70px;
+    gap: 15px;
+}
+
+.dual-price .service-item {
+    display: grid;
+    grid-template-columns: 1fr auto 70px 70px;
+    gap: 15px;
+}
+
+/* Service Items */
+.service-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 18px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    position: relative;
+    overflow: hidden;
+}
+
+.service-item::before {
+    content: '';
+    position: absolute;
+    left: -100%;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(59, 159, 217, 0.05), transparent);
+    transition: left 0.6s ease;
+}
+
+.service-item:hover::before {
+    left: 100%;
+}
+
+.friseursalon .service-item::before {
+    background: linear-gradient(90deg, transparent, rgba(224, 35, 47, 0.05), transparent);
+}
+
+.service-name {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--color-accent);
+    white-space: nowrap;
+    position: relative;
+    transition: var(--transition-fast);
+}
+
+.service-name.highlight {
+    color: #3b9fd9;
+}
+
+.friseursalon .service-name.highlight {
+    color: var(--color-secondary);
+}
+
+.service-item:hover .service-name {
+    transform: translateX(5px);
+}
+
+.service-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(59, 159, 217, 0.6) 0%, transparent 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.friseursalon .service-line {
+    background: linear-gradient(90deg, rgba(224, 35, 47, 0.6) 0%, transparent 100%);
+}
+
+/* Animated dotted line effect */
+.service-line::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(90deg,
+            transparent,
+            transparent 4px,
+            rgba(59, 159, 217, 0.8) 4px,
+            rgba(59, 159, 217, 0.8) 8px);
+    animation: lineFlow 20s linear infinite;
+}
+
+.friseursalon .service-line::before {
+    background: repeating-linear-gradient(90deg,
+            transparent,
+            transparent 4px,
+            rgba(224, 35, 47, 0.8) 4px,
+            rgba(224, 35, 47, 0.8) 8px);
+}
+
+@keyframes lineFlow {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+.service-price {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-accent);
+    min-width: 60px;
+    text-align: right;
+    transition: var(--transition-fast);
+}
+
+.service-item:hover .service-price {
+    color: #3b9fd9;
+    transform: scale(1.1);
+}
+
+.friseursalon .service-item:hover .service-price {
+    color: var(--color-secondary);
+}
+
+.service-price-single {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-text);
+    min-width: 140px;
+    text-align: right;
+    grid-column: span 2;
+    transition: var(--transition-fast);
+}
+
+.service-item:hover .service-price-single {
+    color: var(--color-secondary);
+}
+
+/* Services More Button */
+.services-more {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.more-btn {
+    padding: 15px 50px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50px;
+    cursor: pointer;
+    transition: var(--transition-fast);
+    position: relative;
+    overflow: hidden;
+}
+
+.more-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: var(--color-secondary);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.5s ease, height 0.5s ease;
+    z-index: -1;
+}
+
+.more-btn:hover {
+    border-color: var(--color-secondary);
+    color: var(--color-accent);
+}
+
+.more-btn:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+/* ==================== Scroll Animations ==================== */
+.animate-on-scroll {
+    opacity: 0;
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.animate-on-scroll.visible {
+    opacity: 1;
+}
+
+/* Fade Up Animation */
+.animate-on-scroll[data-animation="fade-up"] {
+    transform: translateY(40px);
+}
+
+.animate-on-scroll[data-animation="fade-up"].visible {
+    transform: translateY(0);
+}
+
+/* Slide Right Animation */
+.animate-on-scroll[data-animation="slide-right"] {
+    transform: translateX(-30px);
+}
+
+.animate-on-scroll[data-animation="slide-right"].visible {
+    transform: translateX(0);
+}
+
+/* Scale Up Animation */
+.animate-on-scroll[data-animation="scale-up"] {
+    transform: scale(0.9);
+}
+
+.animate-on-scroll[data-animation="scale-up"].visible {
+    transform: scale(1);
+}
+
+/* Fade In Animation */
+.animate-on-scroll[data-animation="fade-in"] {
+    transform: none;
+}
+
+.animate-on-scroll[data-animation="fade-in"].visible {
+    opacity: 1;
+}
+
+/* Responsive Styles for Services */
+@media (max-width: 768px) {
+    .services-block {
+        padding: 25px 20px;
+        margin-bottom: 40px;
+    }
+
+    .services-title {
+        font-size: 28px;
+        letter-spacing: 2px;
+    }
+
+    .service-item {
+        padding: 14px 0;
+        flex-wrap: wrap;
+    }
+
+    .service-name {
+        font-size: 13px;
+    }
+
+    .service-line {
+        display: none;
+    }
+
+    .dual-price .service-item {
+        grid-template-columns: 1fr 50px 50px;
+    }
+
+    .service-price-single {
+        min-width: 100px;
+    }
+
+    .more-btn {
+        padding: 12px 35px;
+        font-size: 11px;
+    }
+}
+
+@media (max-width: 480px) {
+    .services-block {
+        padding: 20px 15px;
+    }
+
+    .services-table-header {
+        display: none;
+    }
+
+    .service-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+
+    .dual-price .service-item {
+        grid-template-columns: 1fr;
+        gap: 5px;
+    }
+
+    .service-price,
+    .service-price-single {
+        text-align: left;
+        min-width: auto;
+    }
+
+    .dual-price .service-price:first-of-type::before {
+        content: 'Kurz: ';
+        color: var(--color-text);
+        font-weight: 400;
+    }
+
+    .dual-price .service-price:last-of-type::before {
+        content: 'Lang: ';
+        color: var(--color-text);
+        font-weight: 400;
+    }
 }
